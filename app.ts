@@ -94,3 +94,51 @@ if (typeof randomVariable === 'string') {
 const randomFunction = (parameter1: string, parameter2: number): never => {
     throw { message: parameter1, errorCode: parameter2 };
 };
+
+// {filename} --watch flag enters watch mode to automatically recompile and quickly see errors
+// However, only watches one file
+
+// tsc --init creates tsconfig.json file
+// Now, you only need to type 'tsc' to compile all TypeScript files
+// Can be combined with tsc --watch, to watch all TypeScript files
+
+// Config, in tsconfig.json
+// exclude, excludes files that you do not want to compile
+    // node_modules should go in here, in case there are any TypeScript files in there, is default
+// include, TypeScript will only compile these files
+    // If both are set, both will be respected
+// files, specify specific files and not folders like those above
+
+// Important compiler options
+// target, specifies version of JavaScript to support
+// lib, assuming glabal variables don't need to be typed if commented out
+    // Can add things like 'dom', 'es6', 'dom.iterable', 'scripthost'
+    // Same as commented out, these are default
+// allowJs, checkJs, when you don't want to use TypeScript or very little in a file
+// jsx
+// sourceMap, shows files in sources tab in the console, good for debugging in bigger projects
+// outDir, rootDir, organize TypeScript files and JavaScript files when those are compiled
+    // Set location of compiled files, file structure will be replicated
+    // rootDir is almost like an exclude/include
+// removeComments, self explanatory
+// noEmits, does not compile TypeScript files
+// importHelpers
+// downlevelIteration, increases compatibility with older JavaScript versions with edge cases like loops
+// isolatedModules
+// noEmitOnError, default false, do not compile to JavaScript file if there is an error
+// strict, will set true a handful of options below it, you can do this or individually check them off
+/*
+noImplicitAny, parameters
+strictNullChecks, working with values that might be null, ! when you are saying will for sure be there
+    if you don't know for sure if it will not be null, have a check
+strictFunctionTypes, classes and inheritance
+strictBindCallApply, binding
+strictPrepertyInitialization, classes
+noImplicitThis, this keyword, not clear what this refers to
+alwaysStrict, 'use strict'
+
+Additional checks, helps with code quality
+'''
+
+Debugging
+*/
